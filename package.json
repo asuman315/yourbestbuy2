@@ -13,6 +13,7 @@
     "preview": "shopify hydrogen preview",
     "lint": "eslint --resolve-plugins-relative-to . --no-error-on-unmatched-pattern --ext .js,.ts,.jsx,.tsx src",
     "start": "node --enable-source-maps dist/server",
+    "serve": "node --enable-source-maps dist/node",
     "test": "WATCH=true vitest",
     "test:ci": "yarn build --target node && vitest run"
   },
@@ -43,6 +44,6 @@
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-icons": "^4.4.0",
-    "serve-static": "^1.14.1"
+    "serve-static": "^1.15.0"
   }
 }
