@@ -1,6 +1,7 @@
 import {Fragment, useEffect} from 'react';
-import {Link} from '@shopify/hydrogen';
+import {Link} from '@shopify/hydrogen/client';
 import {FocusTrap} from '@headlessui/react';
+import {MdClose} from 'react-icons/md';
 
 import MobileCountrySelector from './MobileCountrySelector.client';
 import OpenIcon from './OpenIcon';
@@ -26,21 +27,27 @@ export default function MobileNavigation({collections, isOpen, setIsOpen}) {
   return (
     <div className="lg:hidden">
       <OpenFocusTrap>
+        {/* Close and Open Icons */}
         <button
           type="button"
-          className="flex justify-center items-center w-7 h-full"
+          className=" relative z-10 top-3 flex justify-center items-center w-7 h-full mb-[2rem]"
           onClick={() => setIsOpen((previousIsOpen) => !previousIsOpen)}
         >
           <span className="sr-only">{isOpen ? 'Close' : 'Open'} Menu</span>
           {isOpen ? <CloseIcon /> : <OpenIcon />}
         </button>
+        {/* Set Opening and Closing of the nav bar */}
         {isOpen ? (
-          <div className="fixed -left-0 top-20 w-full h-screen z-10 bg-gray-50 px-4 md:px-12 py-7">
+          <div className="fixed -left-0 top-0 w-full h-screen z-0 bg-secondary-10 px-4 md:px-12 pt-24 opacity-90">
             <ul>
+              {/* map over the collections and return each collection's title as a list item */}
               {collections.map((collection) => (
-                <li className="border-b border-gray-200" key={collection.id}>
+                <li
+                  className=" border-secondary-3 border-b-2 text-secondary-1 font-bold text-[1rem]"
+                  key={collection.id}
+                >
                   <Link
-                    className="group py-5 text-gray-700 flex items-center justify-between"
+                    className="uppercase py-8 text-secondary-3 flex items-center justify-between"
                     to={`/collections/${collection.handle}`}
                     onClick={() => setIsOpen(false)}
                   >
@@ -53,6 +60,7 @@ export default function MobileNavigation({collections, isOpen, setIsOpen}) {
             <MobileCountrySelector />
           </div>
         ) : null}
+        {/* End of Nav-bar */}
       </OpenFocusTrap>
     </div>
   );
@@ -60,21 +68,9 @@ export default function MobileNavigation({collections, isOpen, setIsOpen}) {
 
 function CloseIcon() {
   return (
-    <svg
-      width="18"
-      height="18"
-      viewBox="0 0 18 18"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M1 17L17 1M1 1L17 17"
-        stroke="black"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
+    <div className="text-[2rem] text-secondary-3 border-0 outline-none">
+      <MdClose />
+    </div>
   );
 }
 
