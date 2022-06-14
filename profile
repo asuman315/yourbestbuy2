@@ -1,1 +1,1 @@
-web: preview --target node
+web: yarn preview --target node
