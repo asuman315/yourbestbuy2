@@ -1,0 +1,1 @@
+web: preview --target node
