@@ -79,4 +79,4 @@ jspm_packages/
 # Vite output
 dist
 
-yarn.lock
+package-lock.json
