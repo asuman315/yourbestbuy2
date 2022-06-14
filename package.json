@@ -12,7 +12,7 @@
     "build": "shopify hydrogen build",
     "preview": "shopify hydrogen preview",
     "lint": "eslint --resolve-plugins-relative-to . --no-error-on-unmatched-pattern --ext .js,.ts,.jsx,.tsx src",
-    "start": "node --enable-source-maps dist/server",
+    "start": "node --enable-source-maps dist-server",
     "serve": "node --enable-source-maps dist/server",
     "test": "WATCH=true vitest",
     "test:ci": "yarn build --target node && vitest run"
