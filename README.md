@@ -61,12 +61,10 @@ yarn test:ci
 
 Edit read.me file for build purposes bbbbbbbbbb
 
- "build": "shopify hydrogen build",
 
-  "start": "node --enable-source-maps dist/node/index.js",
     "serve": "node --enable-source-maps dist/server",
 
-      "engines": {
-    "node": "16.14"
-  },
+    "build": "npm run build:client && npm run build:ssr",
+    "build:client": "vite build --outDir dist/client --manifest",
+    "build:ssr": "cross-env WORKER=true vite build --ssr @netlify/hydrogen-platform/handler",
 

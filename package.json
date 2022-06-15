@@ -4,11 +4,13 @@
   "version": "0.0.0",
   "license": "MIT",
   "private": true,
+  "engines": {
+    "node": "16.14"
+  },
   "scripts": {
     "dev": "shopify hydrogen dev",
-    "build": "npm run build:client && npm run build:ssr",
-    "build:client": "vite build --outDir dist/client --manifest",
-    "build:ssr": "cross-env WORKER=true vite build --ssr @netlify/hydrogen-platform/handler",
+    "build": "shopify hydrogen build",
+    "start": "node --enable-source-maps dist/node/index.js",
     "preview": "shopify hydrogen preview",
     "lint": "eslint --resolve-plugins-relative-to . --no-error-on-unmatched-pattern --ext .js,.ts,.jsx,.tsx src",
     "test": "WATCH=true vitest",
