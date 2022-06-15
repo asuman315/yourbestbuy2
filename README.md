@@ -66,3 +66,7 @@ Edit read.me file for build purposes bbbbbbbbbb
   "start": "node --enable-source-maps dist/node/index.js",
     "serve": "node --enable-source-maps dist/server",
 
+      "engines": {
+    "node": "16.14"
+  },
+
