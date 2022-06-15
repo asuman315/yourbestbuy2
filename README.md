@@ -61,3 +61,8 @@ yarn test:ci
 
 Edit read.me file for build purposes bbbbbbbbbb
 
+ "build": "shopify hydrogen build",
+
+  "start": "node --enable-source-maps dist/node/index.js",
+    "serve": "node --enable-source-maps dist/server",
+

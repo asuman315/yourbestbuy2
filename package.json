@@ -9,11 +9,11 @@
   },
   "scripts": {
     "dev": "shopify hydrogen dev",
-    "build": "shopify hydrogen build",
+    "build": "npm run build:client && npm run build:ssr",
+    "build:client": "vite build --outDir dist/client --manifest",
+    "build:ssr": "cross-env WORKER=true vite build --ssr @netlify/hydrogen-platform/handler",
     "preview": "shopify hydrogen preview",
     "lint": "eslint --resolve-plugins-relative-to . --no-error-on-unmatched-pattern --ext .js,.ts,.jsx,.tsx src",
-    "start": "node --enable-source-maps dist/node/index.js",
-    "serve": "node --enable-source-maps dist/server",
     "test": "WATCH=true vitest",
     "test:ci": "yarn build --target node && vitest run"
   },
@@ -47,3 +47,4 @@
     "serve-static": "^1.15.0"
   }
 }
+
