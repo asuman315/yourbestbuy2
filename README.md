@@ -58,3 +58,6 @@ To run tests in a continuous-integration (CI) environment like GitHub Actions:
 ```bash
 yarn test:ci
 ```
+
+Edit read.me file for build purposes
+
