@@ -9,7 +9,7 @@ import {
 import ProductOptions from './ProductOptions.client';
 import Gallery from './Gallery.client';
 import {
-  BUTTON_PRIMARY_CLASSES,
+ // BUTTON_PRIMARY_CLASSES,
   BUTTON_SECONDARY_CLASSES,
 } from './Button.client';
 
@@ -17,15 +17,17 @@ function AddToCartMarkup() {
   const {selectedVariant} = useProductOptions();
   const isOutOfStock = !selectedVariant.availableForSale;
 
+const BUTTON_PRIMARY_CLASSES = `bg-primary-4 text-white uppercase font-bold py-3 w-full rounded`;
+
   return (
     <div className="space-y-2 mb-8">
       <AddToCartButton
         className={BUTTON_PRIMARY_CLASSES}
         disabled={isOutOfStock}
       >
-        {isOutOfStock ? 'Out of stock' : 'Add to bag'}
+        {isOutOfStock ? 'Out of stock' : 'Add to cart'}
       </AddToCartButton>
-      {isOutOfStock ? (
+      {/* {isOutOfStock ? (
         <p className="text-black text-center">Available in 2-3 weeks</p>
       ) : (
         <BuyNowButton
@@ -34,7 +36,7 @@ function AddToCartMarkup() {
         >
           Buy it now
         </BuyNowButton>
-      )}
+      )} */}
     </div>
   );
 }
@@ -133,7 +135,7 @@ export default function ProductDetails({product}) {
       >
         <div className="grid grid-cols-1 md:grid-cols-[2fr,1fr] gap-x-8 my-16">
           <div className="md:hidden mt-5 mb-8">
-            <h1 className="text-4xl font-bold text-black mb-4">
+            <h1 className=" font-bold mb-4">
               {product.title}
             </h1>
             {product.vendor && (
@@ -151,7 +153,7 @@ export default function ProductDetails({product}) {
 
           <div>
             <div className="hidden md:block">
-              <h1 className="text-5xl font-bold text-black mb-4">
+              <h1 className=" font-bold mb-4 md:text-left">
                 {product.title}
               </h1>
               {product.vendor && (
@@ -164,14 +166,14 @@ export default function ProductDetails({product}) {
             {/* Product Options */}
             <div className="mt-8">
               <ProductOptions />
-              {sizeChartMetafield?.value && (
+              {/* {sizeChartMetafield?.value && (
                 <a
                   href="#size-chart"
                   className="block underline text-gray-500 text-sm tracking-wide my-4"
                 >
                   Size Chart
                 </a>
-              )}
+              )} */}
               <AddToCartMarkup />
               <div className="flex items space-x-4">
                 {sustainableMetafield?.value && (
